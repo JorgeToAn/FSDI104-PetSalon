@@ -1,0 +1,31 @@
+/* GLOBLA */
+body{
+    background-color: rgb(240, 240, 240);
+}
+
+/* HEADER */
+header{
+    background-image: linear-gradient(to right, rgb(69, 69, 241), rgb(252, 57, 57));
+    padding-bottom: 1rem;
+}
+header h1{
+    color: white;
+}
+
+header nav{
+    background-color: rgb(36, 36, 36);
+}
+
+/* MAIN */
+main{
+    height: 100vh;
+    padding: 5vh 0;
+}
+
+/* FOOTER */
+footer{
+    background-color: rgb(36, 36, 36);
+    color: white;
+    height: max-content;
+    padding: 1rem 0;
+}
