@@ -3,14 +3,14 @@
 
 let petSalon ={
     //attributes
-    name:"El Sombrero",
+    name:"Pixel Pet Salon",
     address:"Ave Starlight 804",
     pets:[],
     hours:{
         open:"9:00am",
         close:"6:00pm"
     },
-    services:["grooming","wash"]
+    services:["grooming","wash","nail cutting"]
 }
 
 function Pet(name, age, breed, gender, service, ownerName, contactPhone){
@@ -26,7 +26,7 @@ function Pet(name, age, breed, gender, service, ownerName, contactPhone){
 
 function displayInfo(){
     document.getElementById("info").innerHTML=`
-    Welcome to the ${petSalon.name} family. It is available at ${petSalon.address} from ${petSalon.hours.open} to ${petSalon.hours.close}.`;
+    Welcome to the ${petSalon.name} family. You can locate us at ${petSalon.address} from ${petSalon.hours.open} to ${petSalon.hours.close}.`;
 }
 
 function displayNumberOfPets(){
@@ -57,12 +57,12 @@ function register(){
     let contactPhone = document.getElementById("txtPhone").value;
 
     console.log(`Name: ${petName}
-                Age: ${petAge}
-                Breed: ${petBreed}
-                Gender: ${petGender}
-                Service: ${service}
-                Owner: ${ownerName}
-                Phone: ${contactPhone}`);
+        Age: ${petAge}
+        Breed: ${petBreed}
+        Gender: ${petGender}
+        Service: ${service}
+        Owner: ${ownerName}
+        Phone: ${contactPhone}`);
     //create the obj
     let newPet = new Pet(petName, petAge, petBreed, petGender, service, ownerName, contactPhone);
 

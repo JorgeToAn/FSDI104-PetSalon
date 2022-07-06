@@ -1,11 +1,39 @@
-/* GLOBLA */
+/* GLOBAL */
 body{
     background-color: rgb(240, 240, 240);
 }
 
+/* UTILITIES */
+div.pet-form{
+    background-color: #ffd35b;
+    border-radius: 10px;
+}
+
+div.owner-form{
+    background-color: #8ecae6;
+    border-radius: 10px;
+}
+
+.nav-link{
+    color: #8ecae6;
+}
+.nav-link:hover{
+    color: #8ecae6c0;
+}
+
+.btn-primary{
+    background-color: #023047;
+    border-color: #023047;
+}
+.btn-primary:hover{
+    background-color: #023047e3;
+    border-color: #023047e3;
+}
+
 /* HEADER */
 header{
-    background-image: linear-gradient(to right, rgb(69, 69, 241), rgb(252, 57, 57));
+    /* background-image: linear-gradient(to right, rgb(69, 69, 241), rgb(252, 57, 57)); */
+    background-image: linear-gradient(to right, #8ecae6, #fb8500);
     padding-bottom: 1rem;
 }
 header h1{
@@ -13,18 +41,22 @@ header h1{
 }
 
 header nav{
-    background-color: rgb(36, 36, 36);
+    background-color: #023047;
 }
 
 /* MAIN */
 main{
-    height: 100vh;
+    height: 120vh;
     padding: 5vh 0;
+}
+
+p#number-pets{
+    color: #FB8500;
 }
 
 /* FOOTER */
 footer{
-    background-color: rgb(36, 36, 36);
+    background-color: #023047;
     color: white;
     height: max-content;
     padding: 1rem 0;
