@@ -4,16 +4,6 @@ body{
 }
 
 /* UTILITIES */
-div.pet-form{
-    background-color: #ffd35b;
-    border-radius: 10px;
-}
-
-div.owner-form{
-    background-color: #8ecae6;
-    border-radius: 10px;
-}
-
 .nav-link{
     color: #8ecae6;
 }
@@ -28,6 +18,31 @@ div.owner-form{
 .btn-primary:hover{
     background-color: #023047e3;
     border-color: #023047e3;
+}
+
+/* CONTAINERS */
+div.pet-form{
+    background-color: #ffd35b;
+    border-radius: 10px;
+}
+
+div.owner-form{
+    background-color: #8ecae6;
+    border-radius: 10px;
+}
+
+div.cards-container{
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 60px;
+}
+
+div.pet-card{
+    border-radius: 10px;
+    background-color: #f79256;
+    color: white;
 }
 
 /* HEADER */
@@ -46,7 +61,7 @@ header nav{
 
 /* MAIN */
 main{
-    height: 120vh;
+    min-height: 80vh;
     padding: 5vh 0;
 }
 

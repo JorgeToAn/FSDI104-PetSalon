@@ -56,24 +56,31 @@ function register(){
     let ownerName = document.getElementById("txtOwnerName").value;
     let contactPhone = document.getElementById("txtPhone").value;
 
-    console.log(`Name: ${petName}
-        Age: ${petAge}
-        Breed: ${petBreed}
-        Gender: ${petGender}
-        Service: ${service}
-        Owner: ${ownerName}
-        Phone: ${contactPhone}`);
-    //create the obj
+    //create the object
     let newPet = new Pet(petName, petAge, petBreed, petGender, service, ownerName, contactPhone);
 
-    //push the obj
-    petSalon.pets.push(newPet);
+    if(isValid(newPet)){
+        //push the obj
+        petSalon.pets.push(newPet);
 
-    //updating the number of pets in html
-    displayNumberOfPets();
+        //updating the number of pets and cards in html
+        displayNumberOfPets();
+        // displayCardPets();
+        displayTablePets();
 
-    //clearing the form
-    clearInputs();
+        //clearing the form
+        clearInputs();
+    } else{
+        alert("Please fill out the form.");
+    }
+}
+
+function isValid(aPet){
+    let valid=true;
+    if(aPet.name==="" || aPet.age==="" || aPet.breed==="" || aPet.gender==="" || aPet.ownerName==="" || aPet.contactPhone===""){
+        valid=false;
+    }
+    return valid;
 }
 
 function clearInputs(){
@@ -86,18 +93,20 @@ function clearInputs(){
 
 function init(){
     //creating the pets
-    let scooby = new Pet("Scooby", 50, "Dane", "Male", "Grooming", "Shaggy", "666-666-666");
-    let scrappy = new Pet("Scrappy", 40, "Mixed", "Male", "Vaccine", "Shaggy", "666-666-666");
-    let hachiko = new Pet("Hachiko", 20, "Akita Inu", "Male", "Grooming", "Hidesaburō Ueno", "111-111-111");
-    let fido = new Pet("Fido", 8, "Golden Retriever", "Male", "Vaccine", "Luigi", "567-567-567");
+    let scooby = new Pet("Scooby", 50, "Dane", "Male", "Grooming", "Shaggy", "666-666-6666");
+    let scrappy = new Pet("Scrappy", 40, "Mixed", "Male", "Vaccine", "Shaggy", "666-666-6666");
+    let hachiko = new Pet("Hachiko", 20, "Akita Inu", "Male", "Grooming", "Hidesaburō Ueno", "111-111-1111");
+    let fido = new Pet("Fido", 8, "Golden Retriever", "Male", "Vaccine", "Luigi", "567-567-5678");
 
     //adding the pets to the salon
     petSalon.pets.push(scooby, scrappy, hachiko, fido);
-    console.log(petSalon.pets);
+    //console.log(petSalon.pets);
 
     //calling the functions
     displayInfo();
     displayNumberOfPets();
+    // displayCardPets();
+    displayTablePets();
 
     //hook events
 }
