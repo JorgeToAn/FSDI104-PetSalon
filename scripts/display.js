@@ -6,7 +6,7 @@ function displayCardPets(){
     for(let i=0; i<petSalon.pets.length; i++){
         let pet = petSalon.pets[i];
         cards += 
-            `<div class="pet-card my-2 mx-1 p-3">
+            `<div id="${pet.id}" class="pet-card my-2 mx-1 p-3">
                 <h5 class="text-center">${pet.name}</h5>
                 <p>Age: ${pet.age}</p>
                 <p>Breed: ${pet.breed}</p>
@@ -22,24 +22,12 @@ function displayCardPets(){
 }
 
 function displayTablePets(){
-    let table = 
-        `<tr>
-            <thead>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Breed</th>
-                <th>Gender</th>
-                <th>Service</th>
-                <th>Owner</th>
-                <th>Phone</th>
-            </thead>
-        </tr>
-        <tbody>`;
+    let table = ``;
 
     for(let i=0; i<petSalon.pets.length; i++){
         let pet = petSalon.pets[i];
         table += 
-            `<tr>
+            `<tr id="${pet.id}">
                 <td>${pet.name}</td>
                 <td>${pet.age}</td>
                 <td>${pet.breed}</td>
@@ -47,9 +35,10 @@ function displayTablePets(){
                 <td>${pet.service}</td>
                 <td>${pet.ownerName}</td>
                 <td>${pet.contactPhone}</td>
+                <td>${pet.payment}</td>
+                <td><button class="btn btn-danger" onclick="deletePet(${pet.id})"><i class="fa-solid fa-xmark"></i></button></td>
             </tr>`
     }
-    table += `</tbody>`;
 
     document.getElementById("pets-table").innerHTML = table;
 }

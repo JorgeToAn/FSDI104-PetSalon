@@ -13,7 +13,8 @@ let petSalon ={
     services:["grooming","wash","nail cutting"]
 }
 
-function Pet(name, age, breed, gender, service, ownerName, contactPhone){
+let idCounter = 0;
+function Pet(name, age, breed, gender, service, ownerName, contactPhone, payment, id){
     //attributes = parameters
     this.name=name;
     this.age=age;
@@ -22,6 +23,8 @@ function Pet(name, age, breed, gender, service, ownerName, contactPhone){
     this.service=service;
     this.ownerName=ownerName;
     this.contactPhone=contactPhone;
+    this.payment=payment;
+    this.id=idCounter++;
 }
 
 function displayInfo(){
@@ -30,8 +33,7 @@ function displayInfo(){
 }
 
 function displayNumberOfPets(){
-    document.getElementById("number-pets").innerHTML=`
-    There are currently ${petSalon.pets.length} pets registered!`;
+    document.getElementById("number-pets").innerHTML=`There are currently ${petSalon.pets.length} pets registered!`;
 }
 
 //display the name of the pets registered into the console
@@ -55,9 +57,10 @@ function register(){
     let service = document.getElementById("txtService").value;
     let ownerName = document.getElementById("txtOwnerName").value;
     let contactPhone = document.getElementById("txtPhone").value;
+    let payment = document.getElementById("txtPayment").value;
 
     //create the object
-    let newPet = new Pet(petName, petAge, petBreed, petGender, service, ownerName, contactPhone);
+    let newPet = new Pet(petName, petAge, petBreed, petGender, service, ownerName, contactPhone, payment);
 
     if(isValid(newPet)){
         //push the obj
@@ -83,6 +86,36 @@ function isValid(aPet){
     return valid;
 }
 
+function deletePet(petId){
+    //removing pet from the table
+    document.getElementById(petId).remove();
+    //searching and deleting the pet from the array
+    let petIndex;
+    for(let i=0; i<petSalon.pets.length; i++){
+        let pet=petSalon.pets[i];
+        if(pet.id === petId){
+            petIndex=i;
+        }
+    }
+    petSalon.pets.splice(petIndex,1);
+    //updating the number of pets registered
+    displayNumberOfPets();
+}
+
+function searchPet(){
+    let searchQuery = document.getElementById("pet-searchbar").value;
+
+    for(let i=0; i<petSalon.pets.length; i++){
+        let pet=petSalon.pets[i];
+        
+        if(searchQuery.toLowerCase()===pet.name.toLowerCase()){
+            document.getElementById(pet.id).classList.add("selected");
+        }else{
+            document.getElementById(pet.id).classList.remove("selected");
+        }
+    }
+}
+
 function clearInputs(){
     document.getElementById("txtPetName").value = "";
     document.getElementById("numPetAge").value = "";
@@ -93,10 +126,10 @@ function clearInputs(){
 
 function init(){
     //creating the pets
-    let scooby = new Pet("Scooby", 50, "Dane", "Male", "Grooming", "Shaggy", "666-666-6666");
-    let scrappy = new Pet("Scrappy", 40, "Mixed", "Male", "Vaccine", "Shaggy", "666-666-6666");
-    let hachiko = new Pet("Hachiko", 20, "Akita Inu", "Male", "Grooming", "Hidesaburō Ueno", "111-111-1111");
-    let fido = new Pet("Fido", 8, "Golden Retriever", "Male", "Vaccine", "Luigi", "567-567-5678");
+    let scooby = new Pet("Scooby", 50, "Dane", "Male", "Grooming", "Shaggy", "666-666-6666", "Cash");
+    let scrappy = new Pet("Scrappy", 40, "Mixed", "Male", "Vaccine", "Shaggy", "666-666-6666", "Cash");
+    let hachiko = new Pet("Hachiko", 20, "Akita Inu", "Male", "Grooming", "Hidesaburō Ueno", "111-111-1111", "Credit");
+    let fido = new Pet("Fido", 8, "Golden Retriever", "Male", "Vaccine", "Luigi", "567-567-5678", "Cash");
 
     //adding the pets to the salon
     petSalon.pets.push(scooby, scrappy, hachiko, fido);

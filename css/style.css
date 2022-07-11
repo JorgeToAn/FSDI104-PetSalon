@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 /* GLOBAL */
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
 body{
     background-color: rgb(240, 240, 240);
 }
 
 /* UTILITIES */
-.nav-link{
+header .nav-link, footer .nav-link{
     color: #8ecae6;
 }
-.nav-link:hover{
+header .nav-link:hover, footer .nav-link:hover{
     color: #8ecae6c0;
 }
 
@@ -20,7 +26,19 @@ body{
     border-color: #023047e3;
 }
 
+.search{
+    margin:auto;
+}
+
+.selected{
+    color: red !important;
+}
+
 /* CONTAINERS */
+div.register-container{
+    margin-bottom: 10rem;
+}
+
 div.pet-form{
     background-color: #ffd35b;
     border-radius: 10px;
