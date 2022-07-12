@@ -80,7 +80,7 @@ function register(){
 
 function isValid(aPet){
     let valid=true;
-    if(aPet.name==="" || aPet.age==="" || aPet.breed==="" || aPet.gender==="" || aPet.ownerName==="" || aPet.contactPhone===""){
+    if(aPet.name==="" || aPet.age==="" || aPet.breed==="" || aPet.gender==="" || aPet.ownerName==="" || aPet.contactPhone==="" || aPet.age < 0){
         valid=false;
     }
     return valid;
